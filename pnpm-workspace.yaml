@@ -3,7 +3,7 @@ minimumReleaseAgeExclude:
 # pnpm 11 reads settings from this file (.npmrc non-auth settings are ignored).
 saveExact: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.5
   vite-plus: 0.2.4
 overrides:
   vite: 'catalog:'
