@@ -121,6 +121,12 @@ if (isUser(data)) {
 - **Handle rejections**: Always handle promise rejections
 - **Let errors propagate**: Don't catch errors just to re-throw or log — let them bubble up to error handlers
 
+### Raw SQL Queries
+
+- **Named parameters only**: Pass values as `@name` tokens with an object of values — never positional `$1`/`$2` with an array
+- **No interpolation**: Never build a query by concatenating or interpolating values into the SQL string
+- **Positional-only clients**: When the client genuinely lacks named-parameter support (e.g. a raw `PoolClient` from `pool.connect()`), write the query with `@name` tokens and convert to positional at the call site
+
 ## Negative Knowledge
 
 Avoid these anti-patterns:
@@ -149,6 +155,7 @@ Avoid these anti-patterns:
 - TOCTOU: Checking file/resource existence before operating (try and handle errors instead)
 - Classes with only static methods (use plain functions instead)
 - Duplicating existing interfaces instead of reusing or deriving with `Pick`/`Omit`/`Partial`
+- Positional SQL parameters (`$1`, `$2`) or values interpolated into a query string
 
 ## Verification Workflow
 
@@ -409,4 +416,24 @@ interface UserUpdate {
   email?: string;
   name?: string;
 }
+```
+
+### Raw SQL Parameter Examples
+
+```ts
+// Standard
+const results = await pool.query<UserRow>(
+  `SELECT id, email
+     FROM users
+     WHERE organization_id = @organizationId
+       AND is_deleted = false
+     LIMIT @limit`,
+  { organizationId, limit },
+);
+
+// Non-Standard - positional parameters
+const results = await pool.query<UserRow>('SELECT id, email FROM users WHERE organization_id = $1 AND is_deleted = false LIMIT $2', [organizationId, limit]);
+
+// Non-Standard - interpolated values
+const results = await pool.query<UserRow>(`SELECT id, email FROM users WHERE organization_id = '${organizationId}'`);
 ```
