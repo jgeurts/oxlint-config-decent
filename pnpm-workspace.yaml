@@ -3,8 +3,8 @@ minimumReleaseAgeExclude:
 # pnpm 11 reads settings from this file (.npmrc non-auth settings are ignored).
 saveExact: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.4
-  vite-plus: 0.2.4
+  vite: npm:@voidzero-dev/vite-plus-core@0.3.0
+  vite-plus: 0.3.0
 overrides:
   vite: 'catalog:'
 # eslint 10 is ahead of what some eslint-ecosystem plugins declare; the -compat
