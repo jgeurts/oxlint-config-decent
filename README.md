@@ -174,7 +174,7 @@ rules, and similar) and the testing-library rules. Everything else keeps working
   +import { oxlintConfig } from 'oxlint-config-decent';
   ```
 
-- The ESLint config export (`config()`, `tsEslintConfig()`, and the per-plugin config arrays) was removed. If you still need ESLint, stay on `eslint-config-decent@4`.
+- The ESLint config export (`config()`, `tsEslintConfig()`, and the per-plugin config arrays) was removed. If you still need ESLint, stay on `eslint-config-decent@4`; v4 receives no further releases.
 
 ## Agent Skill for AI-Assisted Development
 
