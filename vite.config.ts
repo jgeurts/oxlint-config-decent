@@ -30,7 +30,7 @@ const config: UserConfig = defineConfig({
   pack: {
     entry: ['src/index.ts', 'src/oxlint.ts', 'src/plugin.ts'],
     format: ['esm', 'cjs'],
-    dts: { oxc: true },
+    dts: { oxc: {} },
     // Match the output layout referenced by package.json
     // (index.mjs + index.d.ts for ESM, index.cjs + index.d.cts for CJS).
     outExtensions: ({ format }) => (format === 'es' ? { js: '.mjs', dts: '.d.ts' } : { js: '.cjs', dts: '.d.cts' }),
