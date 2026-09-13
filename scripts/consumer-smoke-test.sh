@@ -32,24 +32,50 @@ cat > package.json << 'JSON'
 }
 JSON
 
-echo "==> Installing tarball + peers with npm"
-npm install --save-dev \
-  "$tarball" \
-  oxlint \
-  oxlint-tsgolint \
-  eslint \
-  eslint-plugin-react \
-  @vitest/eslint-plugin \
-  eslint-plugin-testing-library \
-  "@typescript/native@npm:typescript@^7" \
-  "typescript@npm:@typescript/typescript6@^6"
+if [[ "${1:-standalone}" == "vite-plus" ]]; then
+  echo "==> Installing a Vite+ consumer without standalone oxlint or eslint"
+  # A packed consumer catches auto-installed peers that the library's own
+  # development dependencies hide. Vite+ must be the only source of oxlint.
+  pnpm add --save-dev "$tarball" vite-plus@0.3.0 \
+    "@typescript/native@npm:typescript@^7" \
+    "typescript@npm:@typescript/typescript6@^6"
 
-echo "==> Generating .oxlintrc.json from the default config"
-node --input-type=module -e "
+  cat > vite.config.ts << 'TS'
+import { defineConfig } from 'vite-plus';
+import { oxlintConfig } from 'oxlint-config-decent';
+
+export default defineConfig({
+  lint: oxlintConfig({ enableReact: false, enableVitest: false, enableTestingLibrary: false }),
+});
+TS
+
+  echo "==> Vite+ configuration types must agree without a cast"
+  pnpm exec tsc --noEmit --skipLibCheck --strict --module nodenext --target ES2023 vite.config.ts
+  echo "==> Incremental Vite+ upgrade must keep configuration types compatible"
+  pnpm add --save-dev vite-plus@0.3.1
+  pnpm exec tsc --noEmit --skipLibCheck --strict --module nodenext --target ES2023 vite.config.ts
+  lint_command=(pnpm exec vp lint)
+else
+  echo "==> Installing tarball + peers with npm"
+  npm install --save-dev \
+    "$tarball" \
+    oxlint \
+    oxlint-tsgolint \
+    eslint \
+    eslint-plugin-react \
+    @vitest/eslint-plugin \
+    eslint-plugin-testing-library \
+    "@typescript/native@npm:typescript@^7" \
+    "typescript@npm:@typescript/typescript6@^6"
+
+  echo "==> Generating .oxlintrc.json from the default config"
+  node --input-type=module -e "
 import { writeFileSync } from 'node:fs';
 import { oxlintConfig } from 'oxlint-config-decent';
 writeFileSync('.oxlintrc.json', JSON.stringify(oxlintConfig(), null, 2));
 "
+  lint_command=(npx oxlint --config=.oxlintrc.json)
+fi
 
 mkdir src
 cat > tsconfig.json << 'JSON'
@@ -92,10 +118,10 @@ export class LintProbe {
 TS
 
 echo "==> Clean file must pass"
-npx oxlint --config=.oxlintrc.json src/answer.ts
+"${lint_command[@]}" src/answer.ts
 
 echo "==> Violations must be reported"
-if npx oxlint --config=.oxlintrc.json src/bad.ts src/probe.ts > lint-output.txt 2>&1; then
+if "${lint_command[@]}" src/bad.ts src/probe.ts > lint-output.txt 2>&1; then
   echo "Expected oxlint to fail on the violation fixtures" >&2
   cat lint-output.txt >&2
   exit 1

@@ -90,6 +90,7 @@
     "@stylistic/eslint-plugin": ">=5.0.0",
     "@typescript-eslint/eslint-plugin": ">=8.0.0",
     "@vitest/eslint-plugin": ">=1.0.0",
+    "eslint": "^9.0.0 || ^10.0.0",
     "eslint-plugin-jsdoc": ">=62.0.0",
     "eslint-plugin-react": ">=7.0.0",
     "eslint-plugin-security": ">=4.0.0",
@@ -101,6 +102,9 @@
     "typescript": ">=5.5.0"
   },
   "peerDependenciesMeta": {
+    "oxlint": {
+      "optional": true
+    },
     "@vitest/eslint-plugin": {
       "optional": true
     },

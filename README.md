@@ -51,7 +51,17 @@ Requires oxlint >= 1.53.0 for TypeScript config support.
 
 ### With Vite+
 
-In a [Vite+](https://viteplus.dev) project, spread the config into the `lint` section of `vite.config.ts` instead:
+In a [Vite+](https://viteplus.dev) project, let Vite+ supply its bundled `oxlint` and `oxlint-tsgolint` versions:
+
+```bash
+pnpm add -D oxlint-config-decent vite-plus eslint
+```
+
+Do not add standalone `oxlint` or `oxlint-tsgolint` dependencies to a Vite+ project. Independently updating them can make the config's
+types disagree with the version that `vp lint` runs. The `oxlint` peer is optional for this setup; standalone users must install it
+as shown above. Keep `eslint` explicit so lockfile updates retain the runtime peer imported by compatibility plugins.
+
+Put the config into the `lint` section of `vite.config.ts`:
 
 ```ts
 // vite.config.ts
