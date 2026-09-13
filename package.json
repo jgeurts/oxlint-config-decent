@@ -1,6 +1,6 @@
 {
   "name": "oxlint-config-decent",
-  "version": "4.2.38",
+  "version": "5.0.0",
   "description": "A decent oxlint configuration for TypeScript projects",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
