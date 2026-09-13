@@ -65,4 +65,7 @@ jobs:
       - name: Release
         run: pnpm exec semantic-release
         env:
+          # semantic-release commits CHANGELOG.md and package.json; the vp git hooks (installed by the
+          # prepare script) must not run formatters on that machine-generated commit.
+          VP_GIT_HOOKS: '0'
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
