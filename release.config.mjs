@@ -10,7 +10,7 @@ export default {
     [
       '@semantic-release/commit-analyzer',
       {
-        preset: 'conventionalcommits',
+        preset: 'angular',
         releaseRules: [
           { breaking: true, release: 'major' },
           { revert: true, release: 'patch' },
@@ -24,12 +24,7 @@ export default {
         ],
       },
     ],
-    [
-      '@semantic-release/release-notes-generator',
-      {
-        preset: 'conventionalcommits',
-      },
-    ],
+    '@semantic-release/release-notes-generator',
     [
       '@semantic-release/changelog',
       {
