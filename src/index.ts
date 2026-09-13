@@ -19,6 +19,14 @@ export interface OxlintConfigOptions {
   reactVersion?: string;
 }
 
+// Describe the config we generate instead of exporting every native rule's
+// version-specific option type. Consumers may use a newer bundled oxlint.
+export type DecentOxlintConfig = Omit<OxlintConfig, 'rules' | 'overrides' | 'extends'> & {
+  extends?: DecentOxlintConfig[];
+  rules?: Record<string, DummyRule>;
+  overrides?: (Omit<OxlintOverride, 'rules' | 'extends'> & { extends?: DecentOxlintConfig[]; rules?: Record<string, DummyRule> })[];
+};
+
 // Matches ESLint vitest config: **/*.{spec,test}.ts?(x)
 const VITEST_FILE_GLOBS = ['**/__tests__/**/*.ts', '**/__tests__/**/*.tsx', '**/*.spec.ts', '**/*.spec.tsx', '**/*.test.ts', '**/*.test.tsx'];
 
@@ -284,7 +292,9 @@ const promiseRules: Record<string, DummyRule> = {
 const jsdocRules: Record<string, DummyRule> = {
   // Explicitly configured
   'jsdoc/check-tag-names': 'error',
-  'jsdoc/require-param': ['error', { enableFixer: false, ignoreWhenAllParamsMissing: true, unnamedRootBase: ['args'] }],
+  // enableFixer and unnamedRootBase belong to eslint-plugin-jsdoc; native
+  // oxlint rejects them instead of silently ignoring unsupported options.
+  'jsdoc/require-param': ['error', { ignoreWhenAllParamsMissing: true }],
   'jsdoc/require-param-description': 'off',
   'jsdoc/require-param-name': 'error',
   'jsdoc/require-param-type': 'error',
@@ -557,7 +567,7 @@ const testingLibraryRules: Record<string, DummyRule> = {
   'testing-library/render-result-naming-convention': 'error',
 };
 
-export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
+export function oxlintConfig(options?: OxlintConfigOptions): DecentOxlintConfig {
   const enableReact = options?.enableReact ?? true;
   const enableVitest = options?.enableVitest ?? true;
   const enableNextJs = options?.enableNextJs ?? false;
@@ -620,7 +630,7 @@ export function oxlintConfig(options?: OxlintConfigOptions): OxlintConfig {
     ...(enableNextJs ? nextjsRules : {}),
   };
 
-  const overrides: OxlintOverride[] = [
+  const overrides: NonNullable<DecentOxlintConfig['overrides']> = [
     ...(enableTsEstree
       ? [
           {

@@ -23,13 +23,10 @@ const config: UserConfig = defineConfig({
   // side-by-side arrangement — TS 6.0 JS API, while tsc comes from
   // @typescript/native). The 'decent' jsPlugin resolves via package
   // self-reference to dist, so `vp pack` must run before `vp lint`.
-  // The cast bridges a type-level skew: vite-plus bundles oxlint 1.72 types
-  // while this repo dev-depends on 1.73 (the version the parity tests target).
-  // The config itself is JSON-compatible across both.
   lint: oxlintConfig({
     enableReact: false,
     enableNextJs: false,
-  }) as NonNullable<UserConfig['lint']>,
+  }),
   pack: {
     entry: ['src/index.ts', 'src/oxlint.ts', 'src/plugin.ts'],
     format: ['esm', 'cjs'],

@@ -66,3 +66,6 @@ jobs:
       # real oxlint binary. Catches packaging, peer-resolution, and
       # plugin-loading regressions that in-repo tests cannot see.
       - run: ./scripts/consumer-smoke-test.sh
+      # Vite+ supplies oxlint and tsgolint. Verify the packed config without
+      # installing a second oxlint or hiding mismatched types behind a cast.
+      - run: ./scripts/consumer-smoke-test.sh vite-plus
