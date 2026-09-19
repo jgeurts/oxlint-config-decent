@@ -224,8 +224,8 @@ importers:
         specifier: 10.4.0
         version: 10.4.0
       eslint-plugin-jsdoc:
-        specifier: 64.5.0
-        version: 64.5.0(@typescript/typescript6@6.0.2)(eslint@10.10.0(supports-color@7.2.0))(supports-color@7.2.0)
+        specifier: 64.5.1
+        version: 64.5.1(@typescript/typescript6@6.0.2)(eslint@10.10.0(supports-color@7.2.0))(supports-color@7.2.0)
       eslint-plugin-security:
         specifier: 4.0.1
         version: 4.0.1
@@ -1934,11 +1934,15 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-plugin-jsdoc@64.5.0:
-    resolution: {integrity: sha512-At1L7de/11zGlecxnoXw81hy/xfcnzzXCJX71HTpXt7FPa8bK+nAYRB73pvTfoR3DkTToToQsI6iyX4EbVfGcg==}
+  eslint-plugin-jsdoc@64.5.1:
+    resolution: {integrity: sha512-a5Q7y6t8bExJARWqdm7ofIdGLTrlW3nTD6PXZHe0HLzSOtitQIZ1tWfuyrqOeDDMEG+vKInMXDugGQP0+w3Fxw==}
     engines: {node: ^22.22.2 || >=24.15.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+      typescript: '>= 6.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   eslint-plugin-react@7.37.5:
     resolution: {integrity: sha512-Qteup0SqU15kdocexFNAJMvCJEfa2xUKNV4CC1xsVMrIIqEy3SQ/rqyxCWNzfrd3/ldy6HMlD2e0JDVpDg2qIA==}
@@ -5295,7 +5299,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-plugin-jsdoc@64.5.0(@typescript/typescript6@6.0.2)(eslint@10.10.0(supports-color@7.2.0))(supports-color@7.2.0):
+  eslint-plugin-jsdoc@64.5.1(@typescript/typescript6@6.0.2)(eslint@10.10.0(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@es-joy/jsdoccomment': 0.97.0
       '@es-joy/resolve.exports': 1.2.0
@@ -5313,9 +5317,10 @@ snapshots:
       semver: 7.8.5
       spdx-expression-parse: 5.0.0
       to-valid-identifier: 1.0.0
+    optionalDependencies:
+      typescript: '@typescript/typescript6@6.0.2'
     transitivePeerDependencies:
       - supports-color
-      - typescript
 
   eslint-plugin-react@7.37.5(eslint@10.10.0(supports-color@7.2.0)):
     dependencies:
