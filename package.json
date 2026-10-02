@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "sideEffects": false,
-  "packageManager": "pnpm@12.7.0",
+  "packageManager": "pnpm@12.8.1",
   "exports": {
     ".": {
       "import": {
@@ -122,7 +122,7 @@
     }
   },
   "devDependencies": {
-    "@oxlint/plugins": "1.85.0",
+    "@oxlint/plugins": "1.86.0",
     "@semantic-release/changelog": "7.0.0",
     "@semantic-release/commit-analyzer": "14.0.0-beta.4",
     "@semantic-release/git": "11.0.1",
@@ -131,7 +131,7 @@
     "@semantic-release/release-notes-generator": "15.0.0-beta.3",
     "@stylistic/eslint-plugin": "5.10.0",
     "@types/node": ">=22",
-    "@typescript-eslint/eslint-plugin": "8.70.1",
+    "@typescript-eslint/eslint-plugin": "8.71.0",
     "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/eslint-plugin": "1.6.27",
     "conventional-changelog-conventionalcommits": "10.4.0",
@@ -140,8 +140,8 @@
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unicorn": "76.0.0",
     "markdownlint-cli": "0.49.1",
-    "oxlint": "1.85.0",
-    "oxlint-plugin-eslint": "1.85.0",
+    "oxlint": "1.86.0",
+    "oxlint-plugin-eslint": "1.86.0",
     "oxlint-tsgolint": "7.0.2003",
     "semantic-release": "25.0.9",
     "typescript": "npm:@typescript/typescript6@6.0.2",
