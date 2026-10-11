@@ -224,8 +224,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1
       eslint-plugin-jsdoc:
-        specifier: 65.2.0
-        version: 65.2.0(@typescript/typescript6@6.0.2)(eslint@10.12.0(supports-color@7.2.0))(supports-color@7.2.0)
+        specifier: 65.2.1
+        version: 65.2.1(@typescript/typescript6@6.0.2)(eslint@10.12.0(supports-color@7.2.0))(supports-color@7.2.0)
       eslint-plugin-security:
         specifier: 4.2.0
         version: 4.2.0
@@ -1882,8 +1882,8 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-plugin-jsdoc@65.2.0:
-    resolution: {integrity: sha512-IMZaNwdDa5otUQYGWN1pzywZLsGKswitvFFNhcO8IOsBfaWpWIDXYuZh2sYhe9MNyKN9hz0YryOFaKdpbTP5Bw==}
+  eslint-plugin-jsdoc@65.2.1:
+    resolution: {integrity: sha512-CQPisAS/bKc/QeL8vufvmxYfNBtwVjUrRALYrcJXq4Kh/y9/rbrSMNKaHjW/E8PZzSA0+pxuhGXDtE4NKfAFVA==}
     engines: {node: ^22.22.2 || >=24.15.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -5222,7 +5222,7 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-plugin-jsdoc@65.2.0(@typescript/typescript6@6.0.2)(eslint@10.12.0(supports-color@7.2.0))(supports-color@7.2.0):
+  eslint-plugin-jsdoc@65.2.1(@typescript/typescript6@6.0.2)(eslint@10.12.0(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@es-joy/jsdoccomment': 0.98.0
       '@es-joy/resolve.exports': 1.2.0
