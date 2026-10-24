@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "sideEffects": false,
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.15.0",
   "exports": {
     ".": {
       "import": {
