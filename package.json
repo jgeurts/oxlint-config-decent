@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "sideEffects": false,
-  "packageManager": "pnpm@12.15.0",
+  "packageManager": "pnpm@12.16.0",
   "exports": {
     ".": {
       "import": {
@@ -131,7 +131,7 @@
     "@semantic-release/release-notes-generator": "15.0.0-beta.3",
     "@stylistic/eslint-plugin": "5.10.0",
     "@types/node": ">=22",
-    "@typescript-eslint/eslint-plugin": "8.72.0",
+    "@typescript-eslint/eslint-plugin": "8.72.1",
     "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/eslint-plugin": "1.6.28",
     "conventional-changelog-conventionalcommits": "10.4.1",
