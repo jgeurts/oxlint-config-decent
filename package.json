@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "sideEffects": false,
-  "packageManager": "pnpm@12.16.0",
+  "packageManager": "pnpm@12.16.1",
   "exports": {
     ".": {
       "import": {
@@ -122,7 +122,7 @@
     }
   },
   "devDependencies": {
-    "@oxlint/plugins": "1.89.0",
+    "@oxlint/plugins": "1.90.0",
     "@semantic-release/changelog": "7.0.0",
     "@semantic-release/commit-analyzer": "14.0.0-beta.4",
     "@semantic-release/git": "11.0.1",
@@ -140,8 +140,8 @@
     "eslint-plugin-testing-library": "7.16.2",
     "eslint-plugin-unicorn": "79.0.0",
     "markdownlint-cli": "0.50.0",
-    "oxlint": "1.89.0",
-    "oxlint-plugin-eslint": "1.89.0",
+    "oxlint": "1.90.0",
+    "oxlint-plugin-eslint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "semantic-release": "25.0.9",
     "typescript": "npm:@typescript/typescript6@6.0.2",
