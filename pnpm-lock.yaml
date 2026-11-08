@@ -224,8 +224,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1
       eslint-plugin-jsdoc:
-        specifier: 65.4.3
-        version: 65.4.3(@typescript/typescript6@6.0.2)(eslint@10.14.0(supports-color@7.2.0))(supports-color@7.2.0)
+        specifier: 65.4.4
+        version: 65.4.4(@typescript/typescript6@6.0.2)(eslint@10.14.0(supports-color@7.2.0))(supports-color@7.2.0)
       eslint-plugin-security:
         specifier: 4.2.1
         version: 4.2.1
@@ -316,8 +316,8 @@ packages:
     resolution: {integrity: sha512-yWi6sm7INEwnfS7IJvE0dU+RTrwzLPFcY7e7eGpu/l5Q9lWfQ2ROwZ0qVnc242jw2TUPsfHX3XMIISkGBv57RQ==}
     engines: {node: '>=20.11.0'}
 
-  '@es-joy/jsdoccomment@1.0.0':
-    resolution: {integrity: sha512-jiVfUnvMioo3upHpAoxE4XkqfrL6nc/XQx7Uw7tQL6QbQDJcALm+fhdj6tjiORDF7uADJbTlmnYWR9DvJE/eiw==}
+  '@es-joy/jsdoccomment@1.1.0':
+    resolution: {integrity: sha512-DpIIjjhvlQqpQrsDC8x911I/8mx6athyl/Tk9+lIq5UtQrNmh3EtLaDYKeeu58wh5HIzUfRhjy84S4szWZ9q+A==}
     engines: {node: ^22.22.2 || >=24.15.0}
 
   '@es-joy/resolve.exports@1.2.0':
@@ -1797,8 +1797,8 @@ packages:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
 
-  eslint-plugin-jsdoc@65.4.3:
-    resolution: {integrity: sha512-eTVR8r6Bc9/aZgvqOzaFSiTNDfjULHVO69FTl4POhciCgjS6MLH6S8OsQ23+uGaeFoan8emz89WnMRTox389Xw==}
+  eslint-plugin-jsdoc@65.4.4:
+    resolution: {integrity: sha512-hzqS7vcWJUaRgk3ts7oXBbaahdMO1M6MeIpwlBX1v90wC3jGwqTbyDGSoJ4tg3dJZ/ZyUhBumBPWpgYcs9mS6g==}
     engines: {node: ^22.22.2 || >=24.15.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -2356,8 +2356,8 @@ packages:
     resolution: {integrity: sha512-TYzkACp/wPvDJLRY7qpHXtrhgwoAaojIOnLaaVNi+AbPU2u1kkjfKd9hXXTq0qSAGsyYXvwUXt99h9I5iCmjjw==}
     engines: {node: '>=12.0.0'}
 
-  jsdoc-type-pratt-parser@9.4.0:
-    resolution: {integrity: sha512-orXhi2Y06rag47r4SW4JPII6WlUJbp0xe9cIcqLaSbb/8tREcEZSq99Lu3AFfra6PAlMqTYIxV+ZHxl1dFUrWw==}
+  jsdoc-type-pratt-parser@9.5.0:
+    resolution: {integrity: sha512-Qu/AuBJocEUhxq187P4Ud7xGBHB+NhtrclSrS7Utkr6uNeeh8BrZ5+Ax/AGe8VXQLGY+4oYgbUp04hY8iGsIWA==}
     engines: {node: ^22.22.2 || >=24.15.0}
 
   jsesc@3.1.0:
@@ -3193,6 +3193,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.6:
+    resolution: {integrity: sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -3787,13 +3792,13 @@ snapshots:
       esquery: 1.7.0
       jsdoc-type-pratt-parser: 5.9.2
 
-  '@es-joy/jsdoccomment@1.0.0':
+  '@es-joy/jsdoccomment@1.1.0':
     dependencies:
       '@types/estree': 1.0.10
       '@typescript-eslint/types': 8.72.1
       comment-parser: 1.4.9
       esquery: 1.7.0
-      jsdoc-type-pratt-parser: 9.4.0
+      jsdoc-type-pratt-parser: 9.5.0
 
   '@es-joy/resolve.exports@1.2.0': {}
 
@@ -5120,10 +5125,10 @@ snapshots:
 
   escape-string-regexp@5.0.0: {}
 
-  eslint-plugin-jsdoc@65.4.3(@typescript/typescript6@6.0.2)(eslint@10.14.0(supports-color@7.2.0))(supports-color@7.2.0):
+  eslint-plugin-jsdoc@65.4.4(@typescript/typescript6@6.0.2)(eslint@10.14.0(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@es-joy/escodegen': 4.2.0
-      '@es-joy/jsdoccomment': 1.0.0
+      '@es-joy/jsdoccomment': 1.1.0
       '@es-joy/resolve.exports': 1.2.0
       '@typescript-eslint/utils': 8.72.1(@typescript/typescript6@6.0.2)(eslint@10.14.0(supports-color@7.2.0))(supports-color@7.2.0)
       are-docs-informative: 0.1.1
@@ -5136,7 +5141,7 @@ snapshots:
       html-entities: 2.6.0
       object-deep-merge: 2.0.1
       parse-imports-exports: 0.2.4
-      semver: 7.8.5
+      semver: 7.8.6
       spdx-expression-parse: 5.0.0
       to-valid-identifier: 1.0.0
     optionalDependencies:
@@ -5763,7 +5768,7 @@ snapshots:
 
   jsdoc-type-pratt-parser@5.9.2: {}
 
-  jsdoc-type-pratt-parser@9.4.0:
+  jsdoc-type-pratt-parser@9.5.0:
     dependencies:
       '@types/estree': 1.0.10
 
@@ -6710,6 +6715,8 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.8.5: {}
+
+  semver@7.8.6: {}
 
   set-function-length@1.2.2:
     dependencies:
